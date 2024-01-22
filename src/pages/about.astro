@@ -6,9 +6,8 @@ import Layout from '../layouts/BlogPost.astro';
 	title="About Me"
 	description="Lorem ipsum dolor sit amet"
 	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
 >
-<img src="/blog-placeholder-about.jpg" class="dn" />
+<img src="/demo/cls.gif" class="dn image" />
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
@@ -63,17 +62,31 @@ import Layout from '../layouts/BlogPost.astro';
 </Layout>
 
 <script>
-	const el = document.querySelector('.dn');
+	const el = document.querySelector('.image');
 
 	const delay = setTimeout(() => {
 		el?.classList.remove('dn');
+		
+		
 		clearTimeout(delay);
-	}, 2000);
+	}, 4000);
+	
+	const newdelay = setTimeout(() => {
+		el?.classList.add('full');
+
+		clearTimeout(newdelay);
+	}, 7000);
 
 </script>
 
 <style>
 	.dn {
 		display: none;
+	}
+	.image {
+		width: 50%;
+	}
+	.full {
+		width: 100%;
 	}
 </style>

@@ -55,6 +55,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</head>
 
 	<body>
+		<div class="promo dn"><span>MEGA DEAL!</span></div>
 		<Header />
 		<main>
 			<article>
@@ -63,7 +64,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
+						<!-- <div class="date">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
@@ -72,9 +73,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 									</div>
 								)
 							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+						</div> -->
+						<h3>{title}</h3>
+						<!-- <hr /> -->
 					</div>
 					<slot />
 				</div>
@@ -83,3 +84,44 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Footer />
 	</body>
 </html>
+
+
+<script>
+	const el = document.querySelector('.promo');
+
+	const delay = setTimeout(() => {
+		el?.classList.remove('dn');
+		
+		clearTimeout(delay);
+	}, 10000);
+</script>
+
+<style>
+	.dn {
+		display: none;
+	}
+	.promo {
+		text-align: center;
+		background-color: #ff4040;
+		color: #000;
+		font-size: 3em;
+		font-weight: 900;
+		padding: 0 1em;
+	}
+
+	span {
+		animation-name: blink;
+		animation-duration: 300ms;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+	@keyframes blink {
+		from {
+			color: #fff;
+		}
+		to {
+			color: #000;
+		}
+		
+	}
+</style>
